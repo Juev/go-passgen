@@ -13,3 +13,7 @@ PassGen used fortune for generating new pseudo random data. After that data will
 							Dictionary what should be used
 	-e, --entropy=ENTROPY  Using entropy for generation passwords
 		--version          Show application version.
+
+## Binary
+
+Binary files for different OS can be downloaded from [Release](https://github.com/Juev/go-passgen/releases/latest) page.
