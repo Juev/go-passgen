@@ -1,0 +1,20 @@
+While this implementation of the fortuna random number generator is
+complete, I intend to polish and extend the package over time.  My
+aims are to make the user interface as intuitive as possible and to
+reduce the probablity of accidentially using the package in an unsafe
+way.  This file lists a possible directions for future work.
+
+- Currently, the allocated source numbers for entropy sources wrap
+  around modulo 256.  This may allow an attacker to route all entropy
+  into the same source, by somehow allocating 255 fake-sources between
+  every allocation of a real source.  Is this worth fixing somehow?
+
+- Consider whether some of the recommendations of NIST Special
+  Publication 800-90A [1] are worth implementing.  This includes, in
+  particular, self-tests during operation.
+
+    [1] http://csrc.nist.gov/publications/nistpubs/800-90A/SP800-90A.pdf
+
+- Currently, the seed file is auto-saved every 10 minutes.  Should
+  autosaving stop during periods where no random numbers are
+  requested?

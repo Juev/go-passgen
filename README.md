@@ -1,9 +1,15 @@
 # go-passgen
 
-The password generator works like this:
+PassGen used fortune for generating new pseudo random data. After that data will convert to password from dictionary.
 
-1. A random number is generated.
-2. The generated random number is combined with some additional entropy if available. I haven't bothered to find out where this entropy comes from (usually unpredictable user behavior like mouse movement or keypresses are used for this), but apparently it isn't assumed that entropy is always available.
-3. A SHA256 hash is generated from the random value with entropy.
-4. That hash is used as encryption key for a Salsa20 stream cypher.
-5. The stream cipher is used as a random number generator by repeatedly feeding its output as its input.
+	$ ./bin/go-passgen-darwin-amd64 -h
+	usage: go-passgen-darwin-amd64 [<flags>]
+
+	Flags:
+	-h, --help             Show context-sensitive help (also try --help-long and --help-man).
+	-l, --length=32        Password length
+	-c, --count=6          Numbers of passwords
+	-d, --dictionary="ABCDEFGHIKLMNOPQRSTVXYZabcdefghiklmnopqrstvxyz0123456789"  
+							Dictionary what should be used
+	-e, --entropy=ENTROPY  Using entropy for generation passwords
+		--version          Show application version.
